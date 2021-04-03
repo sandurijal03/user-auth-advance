@@ -1,6 +1,7 @@
 import express from 'express';
 
 import userRoutes from './routes/auth';
+import privateRoutes from './routes/private';
 import connectDb from './config/db';
 import errorHandler from './middleware/error';
 
@@ -10,6 +11,7 @@ const app = express();
 app.use(express.json());
 
 app.use('/api/auth', userRoutes);
+app.use('/api/private', privateRoutes);
 
 // error handler should be last piece of middleware
 app.use(errorHandler);
